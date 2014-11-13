@@ -27,4 +27,16 @@ class GreeterSpecs extends Specification {
         'Sally' | 'Hello Sally'
         ''      | 'Hello'
     }
+	
+	def "I will greet you with multiple test"(){
+		given:'a greeter'
+            def greeter = new Greeter()
+
+        expect: 'i want to greet people'
+            expectedMassage == greeter.greet(who)
+
+        where:'People are ..'
+        who | expectedMassage
+        'Harry' | 'Hello Harry'
+	}
 }
